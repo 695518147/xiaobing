@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zpy.xiaobingindex.mapper.OrdertypeMapper">
+
+
+    <resultMap type="com.zpy.xiaobingindex.entity.Ordertype" id="OrdertypeMap">
+        <result property="id" column="id"/>
+        <result property="orderTypeName" column="orderTypeName"/>
+        <result property="number" column="number"/>
+        <result property="createTime" column="createTime"/>
+        <result property="show" column="isShow"/>
+        <collection property="orders" ofType="com.zpy.xiaobingindex.entity.Order">
+            <id property="id" column="orderId"/>
+            <result property="orderName" column="orderName"/>
+            <result property="show" column="order_isShow"/>
+            <result property="split" column="isSplit"/>
+            <result property="orderDescription" column="orderDescription"/>
+            <result property="orderTypeDescription" column="orderTypeDescription"/>
+            <result property="number" column="order_number"/>
+            <result property="createTime" column="order_createTime"/>
+            <result property="orderTypeId" column="orderType_id"/>
+        </collection>
+    </resultMap>
+
+
+    <select id="queryOrdertype" resultMap="OrdertypeMap">
+        SELECT
+            a.id,
+            a.orderTypeName,
+            a.number,
+            a.createTime,
+            a.isShow,
+            b.id orderId,
+            b.orderName,
+            b.isShow order_isShow,
+            b.isSplit,
+            b.orderDescription,
+            b.orderTypeDescription,
+            b.number order_number,
+            b.createTime order_createTime,
+            b.orderType_Id
+        FROM
+            xiaobing_ordertype a
+            LEFT JOIN xiaobing_order b ON a.id = b.ordertype_id
+        WHERE
+            a.isShow = 1
+            AND b.isShow = 1
+        ORDER BY
+            a.number,
+            b.number
+    </select>
+
+</mapper>

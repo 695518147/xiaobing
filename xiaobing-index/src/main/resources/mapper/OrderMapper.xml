@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zpy.xiaobingindex.mapper.OrderMapper">
+
+
+    <insert id="insertOrder" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `xiaobing_order`
+        (
+        <trim suffixOverrides=",">
+            <if test="id!=null">
+                `id`,
+            </if>
+            <if test="orderName!=null">
+                `orderName`,
+            </if>
+            <if test="isShow!=null">
+                `isShow`,
+            </if>
+            <if test="isSplit!=null">
+                `isSplit`,
+            </if>
+            <if test="orderDescription!=null">
+                `orderDescription`,
+            </if>
+            <if test="orderTypeDescription!=null">
+                `orderTypeDescription`,
+            </if>
+            <if test="number!=null">
+                `number`,
+            </if>
+            <if test="createTime!=null">
+                `createTime`,
+            </if>
+            <if test="orderTypeId!=null">
+                `orderType_id`,
+            </if>
+        </trim>
+        )
+        VALUES
+        (
+        <trim suffixOverrides=",">
+            <if test="id!=null">
+                #{id},
+            </if>
+            <if test="orderName!=null">
+                #{orderName},
+            </if>
+            <if test="isShow!=null">
+                #{isShow},
+            </if>
+            <if test="isSplit!=null">
+                #{isSplit},
+            </if>
+            <if test="orderDescription!=null">
+                #{orderDescription},
+            </if>
+            <if test="orderTypeDescription!=null">
+                #{orderTypeDescription},
+            </if>
+            <if test="number!=null">
+                #{number},
+            </if>
+            <if test="createTime!=null">
+                #{createTime},
+            </if>
+            <if test="orderTypeId!=null">
+                #{orderTypeId},
+            </if>
+        </trim>
+        )
+    </insert>
+
+
+    <update id="updateOrder">
+        UPDATE `xiaobing_order`
+        SET
+        <trim suffixOverrides=",">
+            <if test="orderName != null and orderName!=''">
+                `orderName` = #{orderName},
+            </if>
+            <if test="isShow != null">
+                `isShow` = #{isShow},
+            </if>
+            <if test="isSplit != null">
+                `isSplit` = #{isSplit},
+            </if>
+            <if test="orderDescription != null and orderDescription!=''">
+                `orderDescription` = #{orderDescription},
+            </if>
+            <if test="orderTypeDescription != null and orderTypeDescription!=''">
+                `orderTypeDescription` = #{orderTypeDescription},
+            </if>
+            <if test="number != null">
+                `number` = #{number},
+            </if>
+            <if test="createTime != null">
+                `createTime` = #{createTime},
+            </if>
+            <if test="orderTypeId != null">
+                `orderType_id` = #{orderTypeId},
+            </if>
+        </trim>
+        WHERE
+        <trim suffixOverrides="and">
+            `id` = #{id} and
+        </trim>
+    </update>
+
+    <update id="update">
+        UPDATE `xiaobing_order`
+        SET
+        <trim suffixOverrides=",">
+            <if test="set.orderName != null and set.orderName!=''">
+                `orderName` = #{set.orderName},
+            </if>
+            <if test="set.isShow != null">
+                `isShow` = #{set.isShow},
+            </if>
+            <if test="set.isSplit != null">
+                `isSplit` = #{set.isSplit},
+            </if>
+            <if test="set.orderDescription != null and set.orderDescription!=''">
+                `orderDescription` = #{set.orderDescription},
+            </if>
+            <if test="set.orderTypeDescription != null and set.orderTypeDescription!=''">
+                `orderTypeDescription` = #{set.orderTypeDescription},
+            </if>
+            <if test="set.number != null">
+                `number` = #{set.number},
+            </if>
+            <if test="set.createTime != null">
+                `createTime` = #{set.createTime},
+            </if>
+            <if test="set.orderTypeId != null">
+                `orderType_id` = #{set.orderTypeId},
+            </if>
+        </trim>
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="where.idList != null">
+                `id` in
+                <foreach collection="where.idList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.idSt !=null">
+                `id` >= #{where.idSt} and
+            </if>
+            <if test="where.idEd!=null">
+                `id` &lt;= #{where.idEd} and
+            </if>
+            <if test="where.orderNameList != null">
+                `orderName` in
+                <foreach collection="where.orderNameList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyOrderName!=null and where.fuzzyOrderName.size()>0">
+                (
+                <foreach collection="where.fuzzyOrderName" separator="or" item="item">
+                    `OrderName` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyOrderName!=null and where.rightFuzzyOrderName.size()>0">
+                (
+                <foreach collection="where.rightFuzzyOrderName" separator="or" item="item">
+                    `OrderName` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.isShowList != null">
+                `isShow` in
+                <foreach collection="where.isShowList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.isShowSt !=null">
+                `isShow` >= #{where.isShowSt} and
+            </if>
+            <if test="where.isShowEd!=null">
+                `isShow` &lt;= #{where.isShowEd} and
+            </if>
+            <if test="where.isSplitList != null">
+                `isSplit` in
+                <foreach collection="where.isSplitList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.isSplitSt !=null">
+                `isSplit` >= #{where.isSplitSt} and
+            </if>
+            <if test="where.isSplitEd!=null">
+                `isSplit` &lt;= #{where.isSplitEd} and
+            </if>
+            <if test="where.orderDescriptionList != null">
+                `orderDescription` in
+                <foreach collection="where.orderDescriptionList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyOrderDescription!=null and where.fuzzyOrderDescription.size()>0">
+                (
+                <foreach collection="where.fuzzyOrderDescription" separator="or" item="item">
+                    `OrderDescription` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyOrderDescription!=null and where.rightFuzzyOrderDescription.size()>0">
+                (
+                <foreach collection="where.rightFuzzyOrderDescription" separator="or" item="item">
+                    `OrderDescription` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.orderTypeDescriptionList != null">
+                `orderTypeDescription` in
+                <foreach collection="where.orderTypeDescriptionList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyOrderTypeDescription!=null and where.fuzzyOrderTypeDescription.size()>0">
+                (
+                <foreach collection="where.fuzzyOrderTypeDescription" separator="or" item="item">
+                    `OrderTypeDescription` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyOrderTypeDescription!=null and where.rightFuzzyOrderTypeDescription.size()>0">
+                (
+                <foreach collection="where.rightFuzzyOrderTypeDescription" separator="or" item="item">
+                    `OrderTypeDescription` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.numberList != null">
+                `number` in
+                <foreach collection="where.numberList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.numberSt !=null">
+                `number` >= #{where.numberSt} and
+            </if>
+            <if test="where.numberEd!=null">
+                `number` &lt;= #{where.numberEd} and
+            </if>
+            <if test="where.createTimeList != null">
+                `createTime` in
+                <foreach collection="where.createTimeList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.createTimeSt !=null">
+                `createTime` >= #{where.createTimeSt} and
+            </if>
+            <if test="where.createTimeEd!=null">
+                `createTime` &lt;= #{where.createTimeEd} and
+            </if>
+            <if test="where.orderTypeIdList != null">
+                `orderType_id` in
+                <foreach collection="where.orderTypeIdList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.orderTypeIdSt !=null">
+                `orderType_id` >= #{where.orderTypeIdSt} and
+            </if>
+            <if test="where.orderTypeIdEd!=null">
+                `orderType_id` &lt;= #{where.orderTypeIdEd} and
+            </if>
+        </trim>
+    </update>
+
+
+    <resultMap type="com.zpy.xiaobingindex.entity.Order" id="OrderMap">
+        <result property="id" column="id"/>
+        <result property="orderName" column="orderName"/>
+        <result property="show" column="isShow"/>
+        <result property="split" column="isSplit"/>
+        <result property="orderDescription" column="orderDescription"/>
+        <result property="orderTypeDescription" column="orderTypeDescription"/>
+        <result property="number" column="number"/>
+        <result property="createTime" column="createTime"/>
+        <result property="orderTypeId" column="orderType_id"/>
+    </resultMap>
+
+
+    <select id="queryOrder" resultMap="OrderMap">
+        select
+         b.id ,
+            b.orderName,
+            b.isShow,
+            b.isSplit,
+            b.orderDescription,
+            b.number ,
+            b.createTime ,
+            b.orderType_Id
+        from  `xiaobing_order` b
+    </select>
+
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zpy.xiaobingindex.mapper.TipMapper">
+
+
+    <resultMap type="com.zpy.xiaobingindex.entity.Tip" id="tipMap">
+        <result property="tipId" column="tip_id"/>
+        <result property="tipType" column="tip_type"/>
+        <result property="tipContent" column="tip_content"/>
+        <result property="tipContent" column="number"/>
+        <result property="show" column="is_show"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+
+
+    <select id="queryTips" resultMap="tipMap">
+        SELECT
+            a.tip_type,
+            a.tip_id,
+            a.tip_content,
+            a.number,
+            a.is_show,
+            a.create_time
+        FROM
+            xiaobing_tip a
+        WHERE
+            a.is_show = 1
+        order by  a.number
+    </select>
+
+</mapper>
