@@ -50,13 +50,20 @@
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
         <!-- 驼峰命名 -->
-            <property name="useActualColumnNames" value="false" />
+            <property name="useActualColumnNames" value="true" />
         </table>
-        <table tableName="xiaobing_ordertype" domainObjectName="OrderType"
+        <table tableName="xiaobing_ordertype" domainObjectName="Ordertype"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-            <property name="useActualColumnNames" value="false" />
+        <!-- 驼峰命名 -->
+            <property name="useActualColumnNames" value="true" />
+        </table>
+        <table tableName="xiaobing_tip" domainObjectName="Tip"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="true" />
         </table>
 
     </context>

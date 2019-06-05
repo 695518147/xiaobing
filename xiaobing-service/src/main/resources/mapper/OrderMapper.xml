@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zpy.xiaobingservice.mapper.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.zpy.xiaobingservice.entity.Order" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="orderName" property="orderName" jdbcType="VARCHAR" />
+    <result column="isShow" property="show" jdbcType="BIT" />
+    <result column="isSplit" property="split" jdbcType="BIT" />
+    <result column="number" property="number" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="orderType_id" property="orderTypeId" jdbcType="INTEGER" />
+    <result column="orderDescription" property="orderDescription" jdbcType="LONGVARCHAR" />
+    <result column="orderTypeDescription" property="orderTypeDescription" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, orderName, isShow, isSplit, number, createTime, orderType_id,
+    orderDescription, orderTypeDescription
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from xiaobing_order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from xiaobing_order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zpy.xiaobingservice.entity.Order" keyProperty="id" useGeneratedKeys="true">
+    insert into xiaobing_order (orderName, isShow,
+      isSplit, number, createTime, 
+      orderType_id, orderDescription, orderTypeDescription
+      )
+    values (#{orderName,jdbcType=VARCHAR}, #{isShow,jdbcType=BIT},
+      #{isSplit,jdbcType=BIT}, #{number,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{orderType_id,jdbcType=INTEGER}, #{orderDescription,jdbcType=LONGVARCHAR}, #{orderTypeDescription,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zpy.xiaobingservice.entity.Order" >
+    insert into xiaobing_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderName != null" >
+        orderName,
+      </if>
+      <if test="isShow != null" >
+        isShow,
+      </if>
+      <if test="isSplit != null" >
+        isSplit,
+      </if>
+      <if test="number != null" >
+        number,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="orderType_id != null" >
+        orderType_id,
+      </if>
+      <if test="orderDescription != null" >
+        orderDescription,
+      </if>
+      <if test="orderTypeDescription != null" >
+        orderTypeDescription,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderName != null" >
+        #{orderName,jdbcType=VARCHAR},
+      </if>
+      <if test="isShow != null" >
+        #{isShow,jdbcType=BIT},
+      </if>
+      <if test="isSplit != null" >
+        #{isSplit,jdbcType=BIT},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderType_id != null" >
+        #{orderType_id,jdbcType=INTEGER},
+      </if>
+      <if test="orderDescription != null" >
+        #{orderDescription,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="orderTypeDescription != null" >
+        #{orderTypeDescription,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zpy.xiaobingservice.entity.Order" >
+    update xiaobing_order
+    <set >
+      <if test="orderName != null" >
+        orderName = #{orderName,jdbcType=VARCHAR},
+      </if>
+      <if test="isShow != null" >
+        isShow = #{isShow,jdbcType=BIT},
+      </if>
+      <if test="isSplit != null" >
+        isSplit = #{isSplit,jdbcType=BIT},
+      </if>
+      <if test="number != null" >
+        number = #{number,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderType_id != null" >
+        orderType_id = #{orderType_id,jdbcType=INTEGER},
+      </if>
+      <if test="orderDescription != null" >
+        orderDescription = #{orderDescription,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="orderTypeDescription != null" >
+        orderTypeDescription = #{orderTypeDescription,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zpy.xiaobingservice.entity.Order" >
+    update xiaobing_order
+    set orderName = #{orderName,jdbcType=VARCHAR},
+      isShow = #{isShow,jdbcType=BIT},
+      isSplit = #{isSplit,jdbcType=BIT},
+      number = #{number,jdbcType=INTEGER},
+      createTime = #{createTime,jdbcType=TIMESTAMP},
+      orderType_id = #{orderType_id,jdbcType=INTEGER},
+      orderDescription = #{orderDescription,jdbcType=LONGVARCHAR},
+      orderTypeDescription = #{orderTypeDescription,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zpy.xiaobingservice.entity.Order" >
+    update xiaobing_order
+    set orderName = #{orderName,jdbcType=VARCHAR},
+      isShow = #{isShow,jdbcType=BIT},
+      isSplit = #{isSplit,jdbcType=BIT},
+      number = #{number,jdbcType=INTEGER},
+      createTime = #{createTime,jdbcType=TIMESTAMP},
+      orderType_id = #{orderType_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,10 @@
+version : '3'
+services:
+
+  xiaobingmybatis:
+    container_name: "xiaobingservice"
+    build: .
+    ports:
+      - 7071:7071
+    restart: always
+

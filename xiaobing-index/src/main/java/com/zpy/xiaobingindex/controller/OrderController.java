@@ -19,7 +19,7 @@ public class OrderController {
     private OrderMapper orderMapper;
 
     @GetMapping("/orders")
-    @Cacheable(value = "orderTypes" ,key = "targetClass + methodName +#p0")
+    @Cacheable(value = "orders" ,key = "targetClass + methodName +#p0")
     public List<Order> findAll(){
         Order order = new Order();
         return orderMapper.queryOrder(order);

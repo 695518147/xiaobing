@@ -1,8 +1,8 @@
 server:
-  port: 7070
+  port: 7071
 
 spring:
-#  datasource与hikaricp的配置
+  #  datasource与hikaricp的配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver #com.mysql.jdbc.Driver
     hikari:
@@ -19,20 +19,20 @@ spring:
     username: root
     password: rootroot
   application:
-    name: xiaobingindex
+    name: xiaobingservice
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.zpy.xiaobingindex.entity
+  type-aliases-package: com.zpy.xiaobingservice.entity
 
 
-#showSql
-#logging:
-#  level:
-#    com:
-#      zpy:
-#        xiaobingindex:
-#          mapper : debug
+  #showSql
+  #logging:
+  #  level:
+  #    com:
+  #      zpy:
+  #        xiaobingindex:
+  #          mapper : debug
 
   #时间戳统一转换
   jackson:

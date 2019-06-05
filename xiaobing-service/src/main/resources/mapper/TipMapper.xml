@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zpy.xiaobingservice.mapper.TipMapper" >
+  <resultMap id="BaseResultMap" type="com.zpy.xiaobingservice.entity.Tip" >
+    <id column="tip_id" property="tipId" jdbcType="BIGINT" />
+    <result column="tip_type" property="tipType" jdbcType="TINYINT" />
+    <result column="tip_content" property="tipContent" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="number" property="number" jdbcType="INTEGER" />
+    <result column="is_show" property="show" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tip_id, tip_type, tip_content, create_time, number, is_show
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from xiaobing_tip
+    where tip_id = #{tipId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from xiaobing_tip
+    where tip_id = #{tipId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zpy.xiaobingservice.entity.Tip" keyProperty="tipId" useGeneratedKeys="true">
+    insert into xiaobing_tip (tip_type, tip_content,
+      create_time, number, is_show
+      )
+    values (#{tipType,jdbcType=TINYINT}, #{tipContent,jdbcType=VARCHAR},
+      #{createTime,jdbcType=TIMESTAMP}, #{number,jdbcType=INTEGER}, #{isShow,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zpy.xiaobingservice.entity.Tip" >
+    insert into xiaobing_tip
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tipType != null" >
+        tip_type,
+      </if>
+      <if test="tipContent != null" >
+        tip_content,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="number != null" >
+        number,
+      </if>
+      <if test="isShow != null" >
+        is_show,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tipType != null" >
+        #{tipType,jdbcType=TINYINT},
+      </if>
+      <if test="tipContent != null" >
+        #{tipContent,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=INTEGER},
+      </if>
+      <if test="isShow != null" >
+        #{isShow,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zpy.xiaobingservice.entity.Tip" >
+    update xiaobing_tip
+    <set >
+      <if test="tipType != null" >
+        tip_type = #{tipType,jdbcType=TINYINT},
+      </if>
+      <if test="tipContent != null" >
+        tip_content = #{tipContent,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="number != null" >
+        number = #{number,jdbcType=INTEGER},
+      </if>
+      <if test="isShow != null" >
+        is_show = #{isShow,jdbcType=TINYINT},
+      </if>
+    </set>
+    where tip_id = #{tipId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zpy.xiaobingservice.entity.Tip" >
+    update xiaobing_tip
+    set tip_type = #{tipType,jdbcType=TINYINT},
+      tip_content = #{tipContent,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      number = #{number,jdbcType=INTEGER},
+      is_show = #{isShow,jdbcType=TINYINT}
+    where tip_id = #{tipId,jdbcType=BIGINT}
+  </update>
+</mapper>
