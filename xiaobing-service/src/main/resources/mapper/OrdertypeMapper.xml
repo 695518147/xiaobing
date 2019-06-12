@@ -1,82 +1,83 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zpy.xiaobingservice.mapper.OrdertypeMapper" >
-  <resultMap id="BaseResultMap" type="com.zpy.xiaobingservice.entity.Ordertype" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="orderTypeName" property="orderTypeName" jdbcType="VARCHAR" />
-    <result column="number" property="number" jdbcType="INTEGER" />
-    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="isShow" property="show" jdbcType="BIT" />
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.zpy.xiaobingservice.mapper.OrdertypeMapper">
+    <resultMap id="BaseResultMap" type="com.zpy.xiaobingservice.entity.Ordertype">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="orderTypeName" property="orderTypeName" jdbcType="VARCHAR"/>
+        <result column="number" property="number" jdbcType="INTEGER"/>
+        <result column="createTime" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="isShow" property="show" jdbcType="BIT"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     id, orderTypeName, number, createTime, isShow
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from xiaobing_ordertype
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from xiaobing_ordertype
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from xiaobing_ordertype
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.zpy.xiaobingservice.entity.Ordertype" >
+    <insert id="insert" parameterType="com.zpy.xiaobingservice.entity.Ordertype" useGeneratedKeys="true"
+            keyProperty="id">
     insert into xiaobing_ordertype (orderTypeName, number,
       createTime, isShow)
     values (#{orderTypeName,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER},
-      #{createTime,jdbcType=TIMESTAMP}, #{isShow,jdbcType=BIT})
+      now(), #{isShow,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.zpy.xiaobingservice.entity.Ordertype" >
-    insert into xiaobing_ordertype
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="orderTypeName != null" >
-        orderTypeName,
-      </if>
-      <if test="number != null" >
-        number,
-      </if>
-      <if test="createTime != null" >
-        createTime,
-      </if>
-      <if test="isShow != null" >
-        isShow,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="orderTypeName != null" >
-        #{orderTypeName,jdbcType=VARCHAR},
-      </if>
-      <if test="number != null" >
-        #{number,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="isShow != null" >
-        #{isShow,jdbcType=BIT},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zpy.xiaobingservice.entity.Ordertype" >
-    update xiaobing_ordertype
-    <set >
-      <if test="orderTypeName != null" >
-        orderTypeName = #{orderTypeName,jdbcType=VARCHAR},
-      </if>
-      <if test="number != null" >
-        number = #{number,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null" >
-        createTime = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="isShow != null" >
-        isShow = #{isShow,jdbcType=BIT},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.zpy.xiaobingservice.entity.Ordertype" >
+    <insert id="insertSelective" parameterType="com.zpy.xiaobingservice.entity.Ordertype">
+        insert into xiaobing_ordertype
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderTypeName != null">
+                orderTypeName,
+            </if>
+            <if test="number != null">
+                number,
+            </if>
+            <if test="createTime != null">
+                createTime,
+            </if>
+            <if test="isShow != null">
+                isShow,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderTypeName != null">
+                #{orderTypeName,jdbcType=VARCHAR},
+            </if>
+            <if test="number != null">
+                #{number,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isShow != null">
+                #{isShow,jdbcType=BIT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.zpy.xiaobingservice.entity.Ordertype">
+        update xiaobing_ordertype
+        <set>
+            <if test="orderTypeName != null">
+                orderTypeName = #{orderTypeName,jdbcType=VARCHAR},
+            </if>
+            <if test="number != null">
+                number = #{number,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isShow != null">
+                isShow = #{isShow,jdbcType=BIT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.zpy.xiaobingservice.entity.Ordertype">
     update xiaobing_ordertype
     set orderTypeName = #{orderTypeName,jdbcType=VARCHAR},
       number = #{number,jdbcType=INTEGER},
@@ -85,21 +86,21 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="findOrderTypes" resultMap="BaseResultMap" parameterType="com.github.pagehelper.Page">
-    select
-    a.id,
-    a.orderTypeName,
-    a.number,
-    a.createTime,
-    a.isShow
-    from xiaobing_ordertype a
-    <where>
-      <if test="orderTypeName != null and orderTypeName != ''">
-        a.orderTypeName like concat("%",#{orderTypeName},"%")
-      </if>
-      <if test="isShow != null">
-        and a.isShow=#{isShow}
-      </if>
-    </where>
-  </select>
+    <select id="findOrderTypes" resultMap="BaseResultMap" parameterType="com.github.pagehelper.Page">
+        select
+        a.id,
+        a.orderTypeName,
+        a.number,
+        a.createTime,
+        a.isShow
+        from xiaobing_ordertype a
+        <where>
+            <if test="orderTypeName != null and orderTypeName != ''">
+                a.orderTypeName like concat("%",#{orderTypeName},"%")
+            </if>
+            <if test="isShow != null">
+                and a.isShow=#{isShow}
+            </if>
+        </where>
+    </select>
 </mapper>

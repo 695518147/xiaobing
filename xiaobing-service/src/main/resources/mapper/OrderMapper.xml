@@ -143,4 +143,12 @@
       orderType_id = #{orderType_id,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectByOrderTypeId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select
+    count(1)
+    from xiaobing_order
+    where orderType_id = #{ordertypeId,jdbcType=INTEGER}
+
+  </select>
 </mapper>
