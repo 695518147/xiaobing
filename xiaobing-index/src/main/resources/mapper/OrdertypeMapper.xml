@@ -22,14 +22,6 @@
             <result property="orderTypeId" column="orderType_id"/>
         </collection>
     </resultMap>
-    <resultMap type="com.zpy.xiaobingindex.entity.Ordertype" id="resultMap">
-        <result property="id" column="id"/>
-        <result property="orderTypeName" column="orderTypeName"/>
-        <result property="number" column="number"/>
-        <result property="createTime" column="createTime"/>
-        <result property="show" column="isShow"/>
-    </resultMap>
-
 
     <select id="queryOrdertype" resultMap="OrdertypeMap">
         SELECT
@@ -58,22 +50,6 @@
             b.number
     </select>
 
-    <select id="findOrderTypes" resultMap="resultMap" parameterType="com.github.pagehelper.Page">
-        select
-        a.id,
-        a.orderTypeName,
-        a.number,
-        a.createTime,
-        a.isShow
-        from xiaobing_ordertype a
-        <where>
-            <if test="orderTypeName != null and orderTypeName != ''">
-                a.orderTypeName=#{orderTypeName}
-            </if>
-            <if test="isShow != null">
-                and a.isShow=#{isShow}
-            </if>
-        </where>
-    </select>
+
 
 </mapper>

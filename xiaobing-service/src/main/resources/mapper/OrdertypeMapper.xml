@@ -84,4 +84,22 @@
       isShow = #{isShow,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="findOrderTypes" resultMap="BaseResultMap" parameterType="com.github.pagehelper.Page">
+    select
+    a.id,
+    a.orderTypeName,
+    a.number,
+    a.createTime,
+    a.isShow
+    from xiaobing_ordertype a
+    <where>
+      <if test="orderTypeName != null and orderTypeName != ''">
+        a.orderTypeName like concat("%",#{orderTypeName},"%")
+      </if>
+      <if test="isShow != null">
+        and a.isShow=#{isShow}
+      </if>
+    </where>
+  </select>
 </mapper>

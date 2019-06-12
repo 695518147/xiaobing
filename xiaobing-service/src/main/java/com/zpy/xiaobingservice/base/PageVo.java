@@ -1,4 +1,4 @@
-package com.zpy.xiaobingindex.base;
+package com.zpy.xiaobingservice.base;
 
 import lombok.Data;
 

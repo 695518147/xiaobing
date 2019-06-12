@@ -27,12 +27,12 @@ mybatis:
 
 
   #showSql
-  #logging:
-  #  level:
-  #    com:
-  #      zpy:
-  #        xiaobingindex:
-  #          mapper : debug
+logging:
+  level:
+    com:
+      zpy:
+        xiaobingindex:
+          mapper : debug
 
   #时间戳统一转换
   jackson:

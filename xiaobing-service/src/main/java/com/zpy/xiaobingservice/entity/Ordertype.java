@@ -2,6 +2,7 @@ package com.zpy.xiaobingservice.entity;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -37,7 +38,7 @@ public class Ordertype implements Serializable {
     * 
     * isNullAble:0
     */
-    private java.time.LocalDateTime createTime;
+    private Date createTime;
 
     List<Order> orders;
 
