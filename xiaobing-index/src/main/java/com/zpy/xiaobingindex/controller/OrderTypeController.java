@@ -7,6 +7,7 @@ import com.zpy.xiaobingindex.base.PageVo;
 import com.zpy.xiaobingindex.entity.Ordertype;
 import com.zpy.xiaobingindex.mapper.OrdertypeMapper;
 import com.zpy.xiaobingindex.qo.OrderTypeQo;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +29,6 @@ public class OrderTypeController {
     }
 
     @PostMapping("/orderType/list")
-    @Cacheable(value = "orderType/list" ,key = "targetClass + methodName +#p0")
     public PageInfo<Ordertype> findOrderTypes(@RequestBody OrderTypeQo orderTypeQo, PageVo pageVo){
 
         PageHelper.startPage(pageVo.getPageNum(),pageVo.getPageSize(),pageVo.getOrderBy());
@@ -37,4 +37,11 @@ public class OrderTypeController {
 
         return pageInfo;
     }
+
+    @GetMapping("/clear/orderTypes")
+    @CacheEvict(value = "orderTypes",allEntries = true)
+    public void clear(){
+
+    }
+
 }

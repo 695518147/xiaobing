@@ -8,7 +8,7 @@
         <result property="tipId" column="tip_id"/>
         <result property="tipType" column="tip_type"/>
         <result property="tipContent" column="tip_content"/>
-        <result property="tipContent" column="number"/>
+        <result property="number" column="number"/>
         <result property="show" column="is_show"/>
         <result property="createTime" column="create_time"/>
     </resultMap>

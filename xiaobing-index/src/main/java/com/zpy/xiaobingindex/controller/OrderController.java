@@ -2,6 +2,7 @@ package com.zpy.xiaobingindex.controller;
 
 
 import com.zpy.xiaobingindex.mapper.OrderMapper;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,12 @@ public class OrderController {
     public List<Order> findAll(){
         Order order = new Order();
         return orderMapper.queryOrder(order);
+    }
+
+    @GetMapping("/clear/orders")
+    @CacheEvict(value = "orders",allEntries = true)
+    public void clear(){
+
     }
 
 }
