@@ -20,8 +20,8 @@ public class OrdertypeService {
     private OrderMapper orderMapper;
 
     public Ordertype update(Ordertype ordertype) {
-        ordertypeMapper.updateByPrimaryKey(ordertype);
-        return ordertype;
+        ordertypeMapper.updateByPrimaryKeySelective(ordertype);
+        return ordertypeMapper.selectByPrimaryKey(ordertype.getId());
     }
 
     public Ordertype insert(Ordertype ordertype) {

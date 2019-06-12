@@ -62,7 +62,7 @@
     <update id="updateByPrimaryKeySelective" parameterType="com.zpy.xiaobingservice.entity.Ordertype">
         update xiaobing_ordertype
         <set>
-            <if test="orderTypeName != null">
+            <if test="orderTypeName != null and orderTypeName != ''">
                 orderTypeName = #{orderTypeName,jdbcType=VARCHAR},
             </if>
             <if test="number != null">
