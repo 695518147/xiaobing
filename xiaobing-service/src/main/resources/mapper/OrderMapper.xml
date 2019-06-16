@@ -32,8 +32,8 @@
       orderType_id, orderDescription, orderTypeDescription
       )
     values (#{orderName,jdbcType=VARCHAR}, #{isShow,jdbcType=BIT},
-      #{isSplit,jdbcType=BIT}, #{number,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{orderType_id,jdbcType=INTEGER}, #{orderDescription,jdbcType=LONGVARCHAR}, #{orderTypeDescription,jdbcType=LONGVARCHAR}
+      #{isSplit,jdbcType=BIT}, #{number,jdbcType=INTEGER}, now(),
+      #{orderTypeId,jdbcType=INTEGER}, #{orderDescription,jdbcType=LONGVARCHAR}, #{orderTypeDescription,jdbcType=LONGVARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zpy.xiaobingservice.entity.Order" >
@@ -78,7 +78,7 @@
         #{number,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
+        now(),
       </if>
       <if test="orderType_id != null" >
         #{orderType_id,jdbcType=INTEGER},
@@ -106,9 +106,6 @@
       <if test="number != null" >
         number = #{number,jdbcType=INTEGER},
       </if>
-      <if test="createTime != null" >
-        createTime = #{createTime,jdbcType=TIMESTAMP},
-      </if>
       <if test="orderType_id != null" >
         orderType_id = #{orderType_id,jdbcType=INTEGER},
       </if>
@@ -121,25 +118,12 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zpy.xiaobingservice.entity.Order" >
-    update xiaobing_order
-    set orderName = #{orderName,jdbcType=VARCHAR},
-      isShow = #{isShow,jdbcType=BIT},
-      isSplit = #{isSplit,jdbcType=BIT},
-      number = #{number,jdbcType=INTEGER},
-      createTime = #{createTime,jdbcType=TIMESTAMP},
-      orderType_id = #{orderType_id,jdbcType=INTEGER},
-      orderDescription = #{orderDescription,jdbcType=LONGVARCHAR},
-      orderTypeDescription = #{orderTypeDescription,jdbcType=LONGVARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
   <update id="updateByPrimaryKey" parameterType="com.zpy.xiaobingservice.entity.Order" >
     update xiaobing_order
     set orderName = #{orderName,jdbcType=VARCHAR},
       isShow = #{isShow,jdbcType=BIT},
       isSplit = #{isSplit,jdbcType=BIT},
       number = #{number,jdbcType=INTEGER},
-      createTime = #{createTime,jdbcType=TIMESTAMP},
       orderType_id = #{orderType_id,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -151,4 +135,30 @@
     where orderType_id = #{ordertypeId,jdbcType=INTEGER}
 
   </select>
+
+    <select id="findOrders" resultMap="BaseResultMap" parameterType="com.github.pagehelper.Page">
+        SELECT
+            b.id,
+            b.orderName,
+            b.isShow,
+            b.isSplit,
+            b.orderDescription,
+            b.orderTypeDescription,
+            b.number,
+            b.createTime,
+            b.orderType_Id
+        FROM
+        xiaobing_order b
+        <where>
+            <if test="orderName != null and orderName != ''">
+                b.orderName like concat("%",#{orderName},"%")
+            </if>
+            <if test="isShow != null">
+                and b.isShow=#{isShow}
+            </if>
+            <if test="orderTypeId != null">
+                and b.orderType_Id=#{orderTypeId}
+            </if>
+        </where>
+    </select>
 </mapper>

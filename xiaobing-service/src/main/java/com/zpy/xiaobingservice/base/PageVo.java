@@ -6,7 +6,7 @@ import lombok.Data;
 public class PageVo {
 
     private int pageNum = 0;
-    private int pageSize = 15;
+    private int pageSize = 10;
     private String orderBy = "number asc";
 
 }

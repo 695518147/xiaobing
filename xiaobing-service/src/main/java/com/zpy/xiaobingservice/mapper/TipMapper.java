@@ -1,7 +1,10 @@
 package com.zpy.xiaobingservice.mapper;
 
 import com.zpy.xiaobingservice.entity.Tip;
+import com.zpy.xiaobingservice.qo.TipQo;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 
 /**
@@ -20,4 +23,6 @@ public interface TipMapper {
     int updateByPrimaryKeySelective(Tip record);
 
     int updateByPrimaryKey(Tip record);
+
+    List<Tip> findTips(TipQo tipQo);
 }

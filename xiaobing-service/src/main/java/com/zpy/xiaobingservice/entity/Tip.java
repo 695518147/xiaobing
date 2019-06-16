@@ -4,10 +4,11 @@ package com.zpy.xiaobingservice.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public class Tip {
+public class Tip implements Serializable {
 
     private Integer tipId;
     private Integer tipType;

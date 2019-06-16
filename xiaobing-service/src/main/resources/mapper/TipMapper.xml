@@ -7,7 +7,7 @@
     <result column="tip_content" property="tipContent" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="number" property="number" jdbcType="INTEGER" />
-    <result column="is_show" property="show" jdbcType="TINYINT" />
+    <result column="is_show" property="show" jdbcType="BIT" />
   </resultMap>
   <sql id="Base_Column_List" >
     tip_id, tip_type, tip_content, create_time, number, is_show
@@ -97,4 +97,22 @@
       is_show = #{isShow,jdbcType=TINYINT}
     where tip_id = #{tipId,jdbcType=BIGINT}
   </update>
+
+  <select id="findTips" resultMap="BaseResultMap" parameterType="com.github.pagehelper.Page">
+    SELECT
+        tip_id, tip_type, tip_content, create_time, number, is_show
+    FROM
+    xiaobing_tip
+    <where>
+      <if test="tipContent != null and tipContent != ''">
+        tip_content like concat("%",#{tipContent},"%")
+      </if>
+      <if test="isShow != null">
+        and is_show=#{isShow}
+      </if>
+      <if test="tipType != null">
+        and tip_type=#{tipType}
+      </if>
+    </where>
+  </select>
 </mapper>
