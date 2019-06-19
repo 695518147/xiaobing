@@ -55,7 +55,7 @@
         createTime,
       </if>
       <if test="orderType_id != null" >
-        orderType_id,
+        orderTypeId,
       </if>
       <if test="orderDescription != null" >
         orderDescription,
@@ -80,8 +80,8 @@
       <if test="createTime != null" >
         now(),
       </if>
-      <if test="orderType_id != null" >
-        #{orderType_id,jdbcType=INTEGER},
+      <if test="orderTypeId != null" >
+        #{orderTypeId,jdbcType=INTEGER},
       </if>
       <if test="orderDescription != null" >
         #{orderDescription,jdbcType=LONGVARCHAR},
@@ -106,8 +106,8 @@
       <if test="number != null" >
         number = #{number,jdbcType=INTEGER},
       </if>
-      <if test="orderType_id != null" >
-        orderType_id = #{orderType_id,jdbcType=INTEGER},
+      <if test="orderTypeId != null" >
+        orderType_id = #{orderTypeId,jdbcType=INTEGER},
       </if>
       <if test="orderDescription != null" >
         orderDescription = #{orderDescription,jdbcType=LONGVARCHAR},
@@ -124,7 +124,7 @@
       isShow = #{isShow,jdbcType=BIT},
       isSplit = #{isSplit,jdbcType=BIT},
       number = #{number,jdbcType=INTEGER},
-      orderType_id = #{orderType_id,jdbcType=INTEGER}
+      orderType_id = #{orderTypeId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 

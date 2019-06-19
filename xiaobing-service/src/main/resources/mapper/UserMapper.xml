@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zpy.xiaobingservice.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.zpy.xiaobingservice.entity.User" >
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_age" property="userAge" jdbcType="INTEGER" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <select id="getUserById" parameterType="string" resultMap="BaseResultMap">
+    select
+        user_id, user_name, user_age, email, create_time
+    from xiaobing_user where user_id = #{userId}
+  </select>
+
+  <select id="login" parameterType="com.zpy.xiaobingservice.entity.User" resultType="boolean">
+    SELECT
+        CASE
+
+        WHEN
+            count( 1 ) > 0 THEN
+        TRUE
+        ELSE
+        FALSE
+	    END
+	FROM
+		xiaobing_user
+	WHERE
+    user_id = #{userId} and password = #{password}
+  </select>
+</mapper>
