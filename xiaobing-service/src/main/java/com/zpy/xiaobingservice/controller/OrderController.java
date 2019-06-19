@@ -7,6 +7,7 @@ import com.zpy.xiaobingservice.base.PageVo;
 import com.zpy.xiaobingservice.entity.Order;
 import com.zpy.xiaobingservice.qo.OrderQo;
 import com.zpy.xiaobingservice.service.OrderService;
+import com.zpy.xiaobingservice.utils.HttpclientUtil;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -20,20 +21,20 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping("/order")
-//    @CachePut
     public Order insert(@RequestBody Order order){
-        return orderService.insert(order);
+            clearn();
+            return orderService.insert(order);
     }
 
     @PutMapping("/order")
-//    @CachePut
     public Order update(@RequestBody Order order){
+        clearn();
         return orderService.update(order);
     }
 
     @DeleteMapping("/order/{orderId}")
-//    @CachePut
     public int delete(@PathVariable("orderId") Integer orderId){
+        clearn();
         return orderService.delete(orderId);
     }
 
@@ -45,5 +46,13 @@ public class OrderController {
         PageInfo<Order> pageInfo = new PageInfo(orders);
 
         return pageInfo;
+    }
+
+    public void clearn(){
+        try {
+            HttpclientUtil.doGet("http://120.78.205.51:7070/xiaobing/clear/orderTypes");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

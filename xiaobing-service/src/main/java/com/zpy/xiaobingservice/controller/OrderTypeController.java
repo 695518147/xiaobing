@@ -6,6 +6,7 @@ import com.zpy.xiaobingservice.base.PageVo;
 import com.zpy.xiaobingservice.entity.Ordertype;
 import com.zpy.xiaobingservice.qo.OrderTypeQo;
 import com.zpy.xiaobingservice.service.OrdertypeService;
+import com.zpy.xiaobingservice.utils.HttpclientUtil;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,16 +22,19 @@ public class OrderTypeController {
 
     @PostMapping("/ordertype")
     public Ordertype insert(@RequestBody Ordertype ordertype){
+        clearn();
         return ordertypeService.insert(ordertype);
     }
 
     @PutMapping("/ordertype")
     public Ordertype update(@RequestBody Ordertype ordertype){
+        clearn();
         return ordertypeService.update(ordertype);
     }
 
     @DeleteMapping("/ordertype/{ordertypeId}")
     public int delete(@PathVariable("ordertypeId") Integer ordertypeId){
+        clearn();
         return ordertypeService.delete(ordertypeId);
     }
 
@@ -42,5 +46,13 @@ public class OrderTypeController {
         PageInfo<Ordertype> pageInfo = new PageInfo(ordertypes);
 
         return pageInfo;
+    }
+
+    public void clearn(){
+        try {
+            HttpclientUtil.doGet("http://120.78.205.51:7070/xiaobing/clear/orderTypes");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

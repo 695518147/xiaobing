@@ -6,6 +6,7 @@ import com.zpy.xiaobingservice.base.PageVo;
 import com.zpy.xiaobingservice.entity.Tip;
 import com.zpy.xiaobingservice.qo.TipQo;
 import com.zpy.xiaobingservice.service.TipService;
+import com.zpy.xiaobingservice.utils.HttpclientUtil;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,21 +21,24 @@ public class TipController {
     private TipService tipService;
 
     @PostMapping("/tip")
-//    @CachePut
     public Tip insert(@RequestBody Tip tip){
-        return tipService.insert(tip);
+        Tip tip1 = tipService.insert(tip);
+        clearn();
+        return tip1;
     }
 
     @PutMapping("/tip")
-//    @CachePut
     public Tip update(@RequestBody Tip tip){
-        return tipService.update(tip);
+        Tip tip1 = tipService.update(tip);
+        clearn();
+        return tip1;
     }
 
     @DeleteMapping("/tip/{tipId}")
-//    @CachePut
     public int delete(@PathVariable("tipId") Integer tipId){
-        return tipService.delete(tipId);
+        int row = tipService.delete(tipId);
+        clearn();
+        return row;
     }
 
     @PostMapping("/tip/list")
@@ -45,5 +49,13 @@ public class TipController {
         PageInfo<Tip> pageInfo = new PageInfo(orders);
 
         return pageInfo;
+    }
+
+    public void clearn(){
+        try {
+            HttpclientUtil.doGet("http://120.78.205.51:7070/xiaobing/clear/tips");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

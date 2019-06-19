@@ -68,9 +68,6 @@
             <if test="number != null">
                 number = #{number,jdbcType=INTEGER},
             </if>
-            <if test="createTime != null">
-                createTime = #{createTime,jdbcType=TIMESTAMP},
-            </if>
             <if test="isShow != null">
                 isShow = #{isShow,jdbcType=BIT},
             </if>
@@ -81,7 +78,6 @@
     update xiaobing_ordertype
     set orderTypeName = #{orderTypeName,jdbcType=VARCHAR},
       number = #{number,jdbcType=INTEGER},
-      createTime = #{createTime,jdbcType=TIMESTAMP},
       isShow = #{isShow,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>

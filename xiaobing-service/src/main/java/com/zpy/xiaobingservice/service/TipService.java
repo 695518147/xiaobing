@@ -21,7 +21,7 @@ public class TipService {
     }
 
     public Tip update(Tip tip) {
-        tipMapper.updateByPrimaryKey(tip);
+        tipMapper.updateByPrimaryKeySelective(tip);
         return tip;
     }
 

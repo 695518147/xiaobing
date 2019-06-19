@@ -22,8 +22,8 @@ public class OrderService {
     }
 
     public Order update(Order order) {
-        orderMapper.updateByPrimaryKey(order);
-        return order;
+        orderMapper.updateByPrimaryKeySelective(order);
+        return orderMapper.selectByPrimaryKey(order.getId());
     }
 
     public int delete(Integer orderId) {

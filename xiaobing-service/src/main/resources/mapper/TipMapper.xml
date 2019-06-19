@@ -76,9 +76,6 @@
       <if test="tipContent != null" >
         tip_content = #{tipContent,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
       <if test="number != null" >
         number = #{number,jdbcType=INTEGER},
       </if>
@@ -92,7 +89,6 @@
     update xiaobing_tip
     set tip_type = #{tipType,jdbcType=TINYINT},
       tip_content = #{tipContent,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
       number = #{number,jdbcType=INTEGER},
       is_show = #{isShow,jdbcType=TINYINT}
     where tip_id = #{tipId,jdbcType=BIGINT}
