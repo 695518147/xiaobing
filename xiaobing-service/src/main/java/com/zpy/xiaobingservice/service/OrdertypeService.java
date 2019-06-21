@@ -30,8 +30,8 @@ public class OrdertypeService {
     }
 
     public int delete(Integer ordertypeId) {
-        int row = ordertypeMapper.deleteByPrimaryKey(ordertypeId);
         orderMapper.deleteByTypeId(ordertypeId);
+        int row = ordertypeMapper.deleteByPrimaryKey(ordertypeId);
         return row;
     }
 
