@@ -26,6 +26,11 @@
     delete from xiaobing_order
     where id = #{id,jdbcType=INTEGER}
   </delete>
+
+  <delete id="deleteByTypeId" parameterType="java.lang.Integer">
+    delete from xiaobing_order
+    where orderType_id = #{ordertypeId,jdbcType=INTEGER}
+  </delete>
   <insert id="insert" parameterType="com.zpy.xiaobingservice.entity.Order" keyProperty="id" useGeneratedKeys="true">
     insert into xiaobing_order (orderName, isShow,
       isSplit, number, createTime, 

@@ -59,7 +59,7 @@
         <!-- 驼峰命名 -->
             <property name="useActualColumnNames" value="true" />
         </table>
-        <table tableName="xiaobing_tip" domainObjectName="Tip"
+        <table tableName="xiaobing_user" domainObjectName="User"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

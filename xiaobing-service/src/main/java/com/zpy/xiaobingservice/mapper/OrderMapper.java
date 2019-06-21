@@ -23,4 +23,6 @@ public interface OrderMapper {
     int selectByOrderTypeId(Integer ordertypeId);
 
     List<Order> findOrders(OrderQo orderQo);
+
+    void deleteByTypeId(Integer ordertypeId);
 }
