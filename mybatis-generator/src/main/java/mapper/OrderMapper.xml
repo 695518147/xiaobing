@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.OrderMapper" >
+  <resultMap id="BaseResultMap" type="entity.Order" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="orderName" property="orderName" jdbcType="VARCHAR" />
+    <result column="isShow" property="isShow" jdbcType="BIT" />
+    <result column="isSplit" property="isSplit" jdbcType="BIT" />
+    <result column="number" property="number" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="orderType_id" property="orderType_id" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="entity.OrderWithBLOBs" extends="BaseResultMap" >
+    <result column="orderDescription" property="orderDescription" jdbcType="LONGVARCHAR" />
+    <result column="orderTypeDescription" property="orderTypeDescription" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Blob_Column_List" >
+    orderDescription, orderTypeDescription
+  </sql>
+  <insert id="insert" parameterType="entity.OrderWithBLOBs" >
+    insert into xiaobing_order (id, orderName, isShow, 
+      isSplit, number, createTime, 
+      orderType_id, orderDescription, orderTypeDescription
+      )
+    values (#{id,jdbcType=INTEGER}, #{orderName,jdbcType=VARCHAR}, #{isShow,jdbcType=BIT}, 
+      #{isSplit,jdbcType=BIT}, #{number,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{orderType_id,jdbcType=INTEGER}, #{orderDescription,jdbcType=LONGVARCHAR}, #{orderTypeDescription,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="entity.OrderWithBLOBs" >
+    insert into xiaobing_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orderName != null" >
+        orderName,
+      </if>
+      <if test="isShow != null" >
+        isShow,
+      </if>
+      <if test="isSplit != null" >
+        isSplit,
+      </if>
+      <if test="number != null" >
+        number,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="orderType_id != null" >
+        orderType_id,
+      </if>
+      <if test="orderDescription != null" >
+        orderDescription,
+      </if>
+      <if test="orderTypeDescription != null" >
+        orderTypeDescription,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderName != null" >
+        #{orderName,jdbcType=VARCHAR},
+      </if>
+      <if test="isShow != null" >
+        #{isShow,jdbcType=BIT},
+      </if>
+      <if test="isSplit != null" >
+        #{isSplit,jdbcType=BIT},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderType_id != null" >
+        #{orderType_id,jdbcType=INTEGER},
+      </if>
+      <if test="orderDescription != null" >
+        #{orderDescription,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="orderTypeDescription != null" >
+        #{orderTypeDescription,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
