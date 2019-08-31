@@ -1,9 +1,12 @@
 web:
   upload-path: upload/uploadFiles/
-  upload-url: http://localhost:8080/upload/
+  upload-url: http://120.78.205.51:7073/upload/
 
 spring:
   servlet:
     multipart:
       max-file-size: 100MB
       max-request-size: 1000MB
+
+server:
+  port: 7073

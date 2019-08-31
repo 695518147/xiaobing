@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c8916c4-620a-4910-af27-9f56b3bd75f6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zpy-upload/src/main/java/com/zpy/zpyupload/bean/UploadConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zpy-upload/src/main/java/com/zpy/zpyupload/bean/UploadResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zpy-upload/src/main/java/com/zpy/zpyupload/config/WebMvcConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zpy-upload/src/main/java/com/zpy/zpyupload/controller/UploadController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zpy-upload/src/main/resources/mystatic/20190901021823a059.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zpy-upload/src/main/resources/static/20190901021823a059.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zpy-upload/src/main/resources/templates/订单管理20190901021823a059.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zpy-upload/src/main/resources/订单管理20190901021823a059.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zpy-upload/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zpy-upload/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xiaobing-index/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/xiaobing-index/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zpy-upload/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zpy-upload/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zpy-upload/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zpy-upload/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +70,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/zpy-upload/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/zpy-upload" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -89,11 +81,11 @@
       <recent name="com.zpy.xiaobingservice.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/zpy-upload" />
       <recent name="$PROJECT_DIR$/zpy-upload/src/main/resources" />
       <recent name="$PROJECT_DIR$/zpy-upload/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/zpy-upload/src/main/resources/static" />
       <recent name="$PROJECT_DIR$/xiaobing-service/src/main/resources/mapper" />
-      <recent name="$PROJECT_DIR$/xiaobing-service/src/main/java/com/zpy/xiaobingservice" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.zpy.zpyupload.config" />
@@ -678,6 +670,11 @@
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ecd8b873" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@cf90af45" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ecd8b873" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@bdab7d8e" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
@@ -701,7 +698,7 @@
       <workItem from="1560346997787" duration="17771000" />
       <workItem from="1560429101420" duration="33455000" />
       <workItem from="1567255947480" duration="2821000" />
-      <workItem from="1567261818438" duration="14935000" />
+      <workItem from="1567261818438" duration="15919000" />
     </task>
     <task id="LOCAL-00001" summary="1.小冰首页服务 index&#10;2.mybatis-generator和lombok结合的自动生成工具">
       <created>1559751143887</created>
