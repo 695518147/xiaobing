@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c8916c4-620a-4910-af27-9f56b3bd75f6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/zpy-upload/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zpy-upload/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xiaobing-index/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/xiaobing-index/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zpy-upload/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zpy-upload/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zpy-upload/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zpy-upload/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xiaobing-index/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xiaobing-index/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xiaobing-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xiaobing-service/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xiaobing-service/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zpy-upload/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/zpy-upload/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zpy-upload/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zpy-upload/docker-compose.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -670,7 +671,7 @@
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ecd8b873" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@cf90af45" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@e3a89fc1" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
@@ -698,7 +699,7 @@
       <workItem from="1560346997787" duration="17771000" />
       <workItem from="1560429101420" duration="33455000" />
       <workItem from="1567255947480" duration="2821000" />
-      <workItem from="1567261818438" duration="15919000" />
+      <workItem from="1567261818438" duration="17352000" />
     </task>
     <task id="LOCAL-00001" summary="1.小冰首页服务 index&#10;2.mybatis-generator和lombok结合的自动生成工具">
       <created>1559751143887</created>
@@ -798,7 +799,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561136423338</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="upload 添加docker">
+      <created>1567282290665</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1567282290665</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -834,7 +842,8 @@
     <MESSAGE value="ordertype分页" />
     <MESSAGE value="tip的修改" />
     <MESSAGE value="删除类型关联子节点删除" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除类型关联子节点删除" />
+    <MESSAGE value="upload 添加docker" />
+    <option name="LAST_COMMIT_MESSAGE" value="upload 添加docker" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
