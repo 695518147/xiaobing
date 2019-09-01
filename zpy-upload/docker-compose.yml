@@ -1,10 +1,10 @@
 version : '3'
 services:
 
-  xiaobingmybatis:
+  zpyupload:
     container_name: "zpy-upload"
     build: .
     ports:
-      - 7073:7073
+      - 7074:7074
     restart: always
 

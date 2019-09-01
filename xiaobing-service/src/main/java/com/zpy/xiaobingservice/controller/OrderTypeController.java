@@ -7,11 +7,12 @@ import com.zpy.xiaobingservice.entity.Ordertype;
 import com.zpy.xiaobingservice.qo.OrderTypeQo;
 import com.zpy.xiaobingservice.service.OrdertypeService;
 import com.zpy.xiaobingservice.utils.HttpclientUtil;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @RequestMapping("/xiaobing")
 @RestController
@@ -49,10 +50,14 @@ public class OrderTypeController {
     }
 
     public void clearn(){
-        try {
-            HttpclientUtil.doGet("http://120.78.205.51:7070/xiaobing/clear/orderTypes");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(()-> {
+            try {
+                HttpclientUtil.doGet("http://120.78.205.51:7070/xiaobing/clear/orderTypes");
+                HttpclientUtil.doGet("http://120.78.205.51:7070/xiaobing/orderTypes");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        });
     }
 }

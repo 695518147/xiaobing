@@ -7,8 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface UserMapper {
     int insert(User record);
 
-    int insertSelective(User record);
-
     User getUserById(String userId);
 
     boolean login(User user);

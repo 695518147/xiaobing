@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 @RestController
 @RequestMapping("/xiaobing")
@@ -49,10 +52,14 @@ public class OrderController {
     }
 
     public void clearn(){
-        try {
-            HttpclientUtil.doGet("http://120.78.205.51:7070/xiaobing/clear/orderTypes");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(()-> {
+            try {
+                HttpclientUtil.doGet("http://120.78.205.51:7070/xiaobing/clear/orderTypes");
+                HttpclientUtil.doGet("http://120.78.205.51:7070/xiaobing/orderTypes");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        });
     }
 }
