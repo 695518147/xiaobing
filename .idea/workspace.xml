@@ -3,17 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3c8916c4-620a-4910-af27-9f56b3bd75f6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xiaobing-index/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/xiaobing-index/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xiaobing-index/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xiaobing-index/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xiaobing-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/xiaobing-service/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/xiaobing-service/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xiaobing-service/src/main/java/com/zpy/xiaobingservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xiaobing-service/src/main/java/com/zpy/xiaobingservice/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xiaobing-service/src/main/java/com/zpy/xiaobingservice/controller/OrderTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xiaobing-service/src/main/java/com/zpy/xiaobingservice/controller/OrderTypeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xiaobing-service/src/main/java/com/zpy/xiaobingservice/controller/TipController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xiaobing-service/src/main/java/com/zpy/xiaobingservice/controller/TipController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xiaobing-service/src/main/java/com/zpy/xiaobingservice/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/xiaobing-service/src/main/java/com/zpy/xiaobingservice/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zpy-upload/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/zpy-upload/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zpy-upload/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zpy-upload/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zpy-upload/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zpy-upload/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xiaobing-index/src/main/java/com/zpy/xiaobingindex/controller/OrderTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xiaobing-index/src/main/java/com/zpy/xiaobingindex/controller/OrderTypeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xiaobing-index/src/main/java/com/zpy/xiaobingindex/mapper/OrdertypeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/xiaobing-index/src/main/java/com/zpy/xiaobingindex/mapper/OrdertypeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xiaobing-index/src/main/resources/mapper/OrdertypeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xiaobing-index/src/main/resources/mapper/OrdertypeMapper.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -516,7 +508,7 @@
     </option>
     <option name="contentProportion" value="0.17956205" />
   </component>
-  <component name="RunManager" selected="Spring Boot.XiaobingServiceApplication">
+  <component name="RunManager" selected="Spring Boot.XiaobingIndexApplication">
     <configuration name="mybatis-generator" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -672,6 +664,7 @@
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
       <serviceView>
+        <option name="contentProportion" value="0.14463112" />
         <treeState>
           <expand>
             <path>
@@ -709,7 +702,7 @@
       <workItem from="1560346997787" duration="17771000" />
       <workItem from="1560429101420" duration="33455000" />
       <workItem from="1567255947480" duration="2821000" />
-      <workItem from="1567261818438" duration="21828000" />
+      <workItem from="1567261818438" duration="26292000" />
     </task>
     <task id="LOCAL-00001" summary="1.小冰首页服务 index&#10;2.mybatis-generator和lombok结合的自动生成工具">
       <created>1559751143887</created>
@@ -823,7 +816,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567283717632</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="upload 添加docker">
+      <created>1567347233850</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1567347233850</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -912,8 +912,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/xiaobing-index/src/main/java/com/zpy/xiaobingindex/controller/OrderTypeController.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="37" />
+          <line>22</line>
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -50,6 +50,33 @@
             b.number
     </select>
 
+    <select id="queryOrdertypeList" resultMap="OrdertypeMap">
+        SELECT
+            a.id,
+            a.orderTypeName,
+            a.number,
+            a.createTime,
+            a.isShow,
+            b.id orderId,
+            b.orderName,
+            b.isShow order_isShow,
+            b.isSplit,
+            b.orderDescription,
+            b.orderTypeDescription,
+            b.number order_number,
+            b.createTime order_createTime,
+            b.orderType_Id
+        FROM
+            xiaobing_ordertype a
+            LEFT JOIN xiaobing_order b ON a.id = b.ordertype_id
+        WHERE
+            a.isShow = 1
+            AND b.isShow = 1
+        ORDER BY
+            a.number,
+            b.number
+    </select>
+
 
 
 </mapper>

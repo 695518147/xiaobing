@@ -55,6 +55,7 @@ public class OrderTypeController {
             try {
                 HttpclientUtil.doGet("http://120.78.205.51:7070/xiaobing/clear/orderTypes");
                 HttpclientUtil.doGet("http://120.78.205.51:7070/xiaobing/orderTypes");
+                HttpclientUtil.doGet("http://120.78.205.51:7070/xiaobing/orderType/list");
             }catch (Exception e){
                 e.printStackTrace();
             }

@@ -13,4 +13,5 @@ public interface OrdertypeMapper{
 
     List<Ordertype> queryOrdertype(Ordertype object);
 
+    List<Ordertype> queryOrdertypeList(Ordertype ordertype);
 }
